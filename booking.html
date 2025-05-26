@@ -3,9 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
   <title>Booking</title>
 </head>
 <body>
-  
+  <header class="bg-gray-200 shadow-lg sticky top-0 z-50">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="./index.html" class="flex items-center gap-3 text-2xl font-bold font-lilita text-gray-800">
+        <img src="./assets/images/taxi.png" alt="write" class="h-9 w-9"/>
+        Cabs Online
+      </a>
+      <a href="" class="flex items-center gap-2 font-bold font-lilita text-gray-800">
+        <img src="./assets/images/about.png" alt="write" class="h-7 w-7"/>
+        About This Assignment
+      </a>
+    </nav>
+  </header>
+  <section class="bg-gradient-to-br from-gray-900 to-blue-900 text-white font-inter">
+    <div class="container grid md:grid-cols-12 mx-auto items-center h-auto">
+      <!-- Left Column -->
+      <div class="md:col-span-1"></div>
+      <div class="md:col-span-5">
+        <img src="./assets/images/booking_taxi.jpg" alt="Taxi"
+        class="hidden md:block w-full h-[800px] object-cover rounded-xl shadow-lg" />
+      </div>
+
+      <div class="md:col-span-5 flex flex-col space-y-2 rounded-xl  shadow-2xl p-10">
+        <p class="text-4xl font-lilita text-yellow-400 text-center">Book Your Taxi</p>
+        <p class="text-lg font-inter text-center">Fill in the details below to reserve your ride.</p>
+        <form action="" method="post" class="space-y-3 font-inter">
+          <p class="font-lilita text-yellow-400 text-xl">Personal Information</p>
+          <div class="flex flex-col">
+            <label for="cname" class="mr-2">Name</label>
+            <input type="text" name="cname" 
+              class="border-2 rounded-lg p-1"
+              required />
+          </div>
+          
+          <div class="flex flex-col">
+            <label for="phone" class="mr-2">Phone</label>
+            <input type="text" name="phone" 
+              pattern="^[0-9]{10,12}$"
+              title="Phone number must be all numbers with length between 10-12"
+              class="border-2 rounded-lg p-1" 
+              required/>
+          </div>
+          <p class="font-lilita text-yellow-400 text-xl">Pick Up Address</p>
+          <div class="flex items-center">
+            <label for="unumber" class="w-1/6">Unit No</label>
+            <input type="text" name="unumber" 
+              class="border-2 rounded-lg p-1 w-2/5 mr-5" />
+            <label for="snumber" class="w-1/6">Street No</label>
+            <input type="text" name="snumber" 
+              class="border-2 rounded-lg p-1 w-2/5" required/>
+          </div>
+          <div class="flex items-center">
+            <label for="stname" class="w-1/6">Street Name</label>
+            <input type="text" name="stname" 
+              class="border-2 rounded-lg p-1 w-2/5 mr-5" required/>
+            <label for="sbname" class="w-1/6">Suburb</label>
+            <input type="text" name="sbname" 
+              class="border-2 rounded-lg p-1 w-2/5"/>
+          </div>
+          <p class="font-lilita text-yellow-400 text-xl">Pick Up Detail</p>
+          <div class="flex flex-col">
+            <label for="dsbname" class="mr-2">Destination Suburb</label>
+            <input type="text" name="dsbname" 
+              class="border-2 rounded-lg p-1"/>
+          </div>
+          <div class="flex flex-col">
+            <label for="date" class="mr-2">Pick-Up Date</label>
+            <input type="text" name="date" 
+              class="border-2 rounded-lg p-1"
+              required />
+          </div>
+          <div class="flex flex-col">
+            <label for="time" class="mr-2">Pick-Up Time</label>
+            <input type="text" name="time" 
+              class="border-2 rounded-lg p-1"
+              required />
+          </div>
+          <div class="flex justify-center my-7">
+            <button type="submit" class="bg-yellow-600 hover:bg-yellow-700 font-bold text-white font-inter px-8 py-4 rounded-lg transform hover:scale-105 transition-all shadow-lg">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <section>
+    <p id="reference">Confirm</p>
+  </section>
 </body>
 </html>

@@ -1,0 +1,25 @@
+{
+  "name": "assign2",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/MinThiha22/taxi-booking-system#readme",
+  "bugs": {
+    "url": "https://github.com/MinThiha22/taxi-booking-system/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MinThiha22/taxi-booking-system.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx @tailwindcss/cli -i ./style/input.css -o ./style.css --watch",
+    "build": "npx @tailwindcss/cli -i ./style/input.css -o ./style.css"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.7",
+    "tailwindcss": "^4.1.7"
+  }
+}

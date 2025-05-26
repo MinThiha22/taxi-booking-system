@@ -1,0 +1,31 @@
+/* input custom fonts */
+@font-face {
+  font-family: Sansation;
+  src: url("../assets/fonts/Sansation.ttf"),
+    url("https://webdev.aut.ac.nz/~sss0276/assign2/assets/fonts/Sansation.ttf");
+}
+
+@font-face {
+  font-family: Lato;
+  src: url("../assets/fonts/Lato.ttf"),
+    url("https://webdev.aut.ac.nz/~sss0276/assign2/assets/fonts/Lato.ttf");
+}
+
+@font-face {
+  font-family: Inter;
+  src: url("https://webdev.aut.ac.nz/~sss0276/assign2/assets/fonts/Inter.ttf")
+    url("../assets/fonts/Inter.ttf");
+}
+
+@font-face {
+  font-family: Lilita;
+  src: url("https://webdev.aut.ac.nz/~sss0276/assign2/assets/fonts/Lilita.ttf"),
+    url("../assets/fonts/Lilita.ttf");
+}
+
+@import "tailwindcss";
+
+@theme {
+  --font-inter: Inter, sans-serif;
+  --font-lilita: Lilita, sans-serif;
+}
