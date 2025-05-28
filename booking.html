@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./style.css">
-  <title>Booking</title>
+  <title>Booking - Cabs Online</title>
 </head>
 <body>
+  <!-- Top nav bar -->
   <header class="bg-gray-200 shadow-lg sticky top-0 z-50">
     <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
       <a href="./index.html" class="flex items-center gap-3 text-2xl font-bold font-lilita text-gray-800">
@@ -19,27 +20,30 @@
       </a>
     </nav>
   </header>
-  <section class="bg-gradient-to-br from-gray-900 to-blue-900 text-white font-inter">
+
+  <!-- Main Section -->
+  <section class="bg-gradient-to-br from-gray-900 to-blue-900 text-white font-inter py-10">
     <div class="container grid md:grid-cols-12 mx-auto items-center h-auto">
-      <!-- Left Column -->
+      <!-- Left Column (Image) -->
       <div class="md:col-span-1"></div>
       <div class="md:col-span-5">
         <img src="./assets/images/booking_taxi.jpg" alt="Taxi"
-        class="hidden md:block w-full h-[800px] object-cover rounded-xl shadow-lg" />
+        class="hidden md:block w-full h-[750px] object-cover rounded-xl shadow-lg" />
       </div>
 
-      <div class="md:col-span-5 flex flex-col space-y-2 rounded-xl  shadow-2xl p-10">
+      <!-- Right Column (Form) -->
+      <div class="md:col-span-5 flex flex-col space-y-2 rounded-xl  shadow-2xl px-10 py-5 h-[750px]">
         <p class="text-4xl font-lilita text-yellow-400 text-center">Book Your Taxi</p>
         <p class="text-lg font-inter text-center">Fill in the details below to reserve your ride.</p>
-        <form action="" method="post" class="space-y-3 font-inter">
+        
+        <form id="booking-form" class="space-y-2 font-inter" autocomplete="off">
           <p class="font-lilita text-yellow-400 text-xl">Personal Information</p>
           <div class="flex flex-col">
             <label for="cname" class="mr-2">Name</label>
             <input type="text" name="cname" 
-              class="border-2 rounded-lg p-1"
+              class="border-2 rounded-lg p-1 autofill:bg-blue-900"
               required />
           </div>
-          
           <div class="flex flex-col">
             <label for="phone" class="mr-2">Phone</label>
             <input type="text" name="phone" 
@@ -48,6 +52,7 @@
               class="border-2 rounded-lg p-1" 
               required/>
           </div>
+
           <p class="font-lilita text-yellow-400 text-xl">Pick Up Address</p>
           <div class="flex items-center">
             <label for="unumber" class="w-1/6">Unit No</label>
@@ -65,6 +70,7 @@
             <input type="text" name="sbname" 
               class="border-2 rounded-lg p-1 w-2/5"/>
           </div>
+
           <p class="font-lilita text-yellow-400 text-xl">Pick Up Detail</p>
           <div class="flex flex-col">
             <label for="dsbname" class="mr-2">Destination Suburb</label>
@@ -73,25 +79,49 @@
           </div>
           <div class="flex flex-col">
             <label for="date" class="mr-2">Pick-Up Date</label>
-            <input type="text" name="date" 
+            <input type="date" name="date" 
               class="border-2 rounded-lg p-1"
-              required />
+              id="pickup-date"
+              required 
+              style="color-scheme: dark;"/>
           </div>
           <div class="flex flex-col">
             <label for="time" class="mr-2">Pick-Up Time</label>
-            <input type="text" name="time" 
+            <input type="time" name="time" 
               class="border-2 rounded-lg p-1"
-              required />
+              id="pickup-time"
+              required 
+              style="color-scheme: dark;"/>
           </div>
-          <div class="flex justify-center my-7">
-            <button type="submit" class="bg-yellow-600 hover:bg-yellow-700 font-bold text-white font-inter px-8 py-4 rounded-lg transform hover:scale-105 transition-all shadow-lg">Submit</button>
+
+          <div class="flex my-7 justify-center">
+            <button type="submit" class="bg-yellow-600 hover:bg-yellow-700 font-bold text-white font-inter px-8 py-4 rounded-lg transform hover:scale-105 transition-all shadow-lg cursor-pointer">Book Now</button>
           </div>
         </form>
       </div>
     </div>
   </section>
-  <section>
-    <p id="reference">Confirm</p>
+  <!-- Warning dialog box for date and time -->
+  <dialog class="rounded-xl shadow-lg text-center" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <form method="dialog" class="flex flex-col p-7 gap-3 font-inter">
+      <h2 class="text-xl font-semibold" id="modal-title"></h2>
+      <p id="modal-message"></p>
+      <button class="mx-auto w-[20%] bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded-lg cursor-pointer">OK</button>
+    </form>
+  </dialog>
+
+  <!-- Booking confirmation message section -->
+  <section hidden class="py-10 bg-gradient-to-tl from-cyan-100 to-yellow-100">
+    <div hidden id="reference" class="border-1 w-[30%] space-y-5 flex flex-col mx-auto bg-white p-5 rounded-2xl shadow-2xl">
+    </div>
   </section>
+  <footer>
+    <div class="py-2 border-t border-gray-300 text-center text-md text-gray-500">
+      © 2025 Cabs Online. All rights reserved. Author: Min Thiha Ko Ko - ID: 21156028
+    </div>
+  </footer>
+
+  <script src="./booking.js"></script>
+
 </body>
 </html>
