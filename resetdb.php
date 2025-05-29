@@ -1,3 +1,9 @@
+<!-- 
+  Author: Min Thiha Ko Ko
+  ID: 21156028
+  network username: sss0276
+  Description: This PHP file drops the BOOKING table from the database.
+-->
 <?php
   require_once('../../files/sqlinfo.inc.php');
   $conn = @mysqli_connect($sql_host,

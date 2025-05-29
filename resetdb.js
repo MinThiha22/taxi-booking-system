@@ -1,3 +1,11 @@
+/*
+	Author: Min Thiha Ko Ko
+  ID: 21156028
+  network username: sss0276
+	Description: This script handles resetting the database.
+*/
+
+// Fetch post data to the server
 const postData = (dataSource, divID, drop) =>  {
 	const place = document.getElementById(divID);
   const formData = new FormData();

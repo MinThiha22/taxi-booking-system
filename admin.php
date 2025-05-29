@@ -1,3 +1,9 @@
+<!-- 
+  Author: Min Thiha Ko Ko
+  ID: 21156028
+  network username: sss0276
+  Description: This PHP file manages taxi booking searches and assignments by interacting with database and dynamically generating a results table.
+-->
 <?php
   require_once("../../files/sqlinfo.inc.php");
   $conn = @mysqli_connect($sql_host,$sql_user,$sql_pass,$sql_db);
@@ -43,6 +49,7 @@
     exit(); 
   }
 
+  // 2. HANDLE SEARCH
   $search = mysqli_real_escape_string($conn, $_POST['bsearch']);
   if(empty($search)){
     $date = mysqli_real_escape_string($conn, $_POST['date']);
@@ -76,6 +83,7 @@
 
   table_output($result);
 
+  // Function to output the results in a table format
   function table_output($result){
     if(mysqli_num_rows($result) > 0){
       echo '<table class="w-full min-w-full border-2 text-center">';

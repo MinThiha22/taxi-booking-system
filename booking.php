@@ -1,3 +1,10 @@
+<!-- 
+  Author: Min Thiha Ko Ko
+  ID: 21156028
+  network username: sss0276
+  Description: This PHP file create Booking table and insert new booking data into the database, generating a unique booking reference number.
+-->
+
 <?php
   require_once("../../files/sqlinfo.inc.php");
   $conn = @mysqli_connect($sql_host,$sql_user,$sql_pass,$sql_db);

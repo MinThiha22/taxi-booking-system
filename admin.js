@@ -1,3 +1,11 @@
+/*
+	Author: Min Thiha Ko Ko
+  ID: 21156028
+  network username: sss0276
+	Description: This script handles the search functionality for bookings in the admin portal.
+*/
+
+// Get Current Date
 const getCurrentDate = () => {
 	const now = new Date();
 	const year = now.getFullYear();
@@ -5,10 +13,12 @@ const getCurrentDate = () => {
 	const day = String(now.getDate()).padStart(2, '0');
 	return `${year}-${month}-${day}`;
 }
+// Get Current Time
 const getCurrentTime = () => {
 	const now = new Date();
 	return now.toTimeString().slice(0,5);
 }
+// Add event listener to the search button
 document.getElementById('search-btn').addEventListener('click', () => {
   const form = document.getElementById('search-form');
   if (!form.checkValidity()) {
@@ -20,7 +30,7 @@ document.getElementById('search-btn').addEventListener('click', () => {
 	  postData('admin.php', 'content', formData);
   }
 });
-
+// Fetch post data to the server
 const postData = (dataSource, divID, formData) =>  {
 	const place = document.getElementById(divID);
 	const requestPromise = fetch(dataSource,{
@@ -38,7 +48,7 @@ const postData = (dataSource, divID, formData) =>  {
     place.innerHTML = 'Error: ' + error.message;
   });
 }
-
+// Add event listeners to the assign buttons
 const assignButtonsEventListeners = () => {
   const assignButtons = document.querySelectorAll('.assign-btn');
   assignButtons.forEach(btn => {

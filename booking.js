@@ -1,3 +1,11 @@
+/*
+	Author: Min Thiha Ko Ko
+  ID: 21156028
+  network username: sss0276
+	Description: This script handles form validation and submission for booking a taxi.
+*/
+
+// Get Current Date
 const getCurrentDate = () => {
 	const now = new Date();
 	const year = now.getFullYear();
@@ -5,18 +13,22 @@ const getCurrentDate = () => {
 	const day = String(now.getDate()).padStart(2, '0');
 	return `${year}-${month}-${day}`;
 }
+// Get Current Time
 const getCurrentTime = () => {
 	const now = new Date();
 	return now.toTimeString().slice(0,5);
 }
 
+// Update the date and time fields with current values
 const updateDateTime = () => {
   document.getElementById('pickup-date').value = getCurrentDate();
   document.getElementById('pickup-time').value = getCurrentTime();
 }
 
+// Initialise the date and time fields
 updateDateTime();
 
+// Add event listeners for date validation
 document.getElementById('pickup-date').addEventListener('change', function() {
   const selectedDate = this.value;
 	const currentDate = getCurrentDate();
@@ -26,6 +38,7 @@ document.getElementById('pickup-date').addEventListener('change', function() {
   }
 });
 
+// Add event listeners for time validation
 document.getElementById('pickup-time').addEventListener('change', function() {
 	const selectedTime = this.value;
 	const selectedDate = document.getElementById('pickup-date').value;
@@ -37,6 +50,7 @@ document.getElementById('pickup-time').addEventListener('change', function() {
 	}
 });
 
+// Add event listener for form submission
 document.getElementById('booking-form').addEventListener('submit', (event) => {
   event.preventDefault();
   const form = event.target;
@@ -68,6 +82,7 @@ document.getElementById('booking-form').addEventListener('submit', (event) => {
 	updateDateTime();
 });
 
+// Fetch post data to the server
 const postData = (dataSource, divID, formData) =>  {
 	const place = document.getElementById(divID);
 	const parent = document.getElementById
@@ -89,6 +104,7 @@ const postData = (dataSource, divID, formData) =>  {
   });;
 } 
 
+// Show modal dialog with title and message
 const showModal = (title, message) => {
 	const dialog = document.querySelector('dialog');
 	document.getElementById('modal-title').textContent = title;
@@ -96,4 +112,5 @@ const showModal = (title, message) => {
 	dialog.showModal();
 };
 
+// Update the date and time every minute
 setInterval(updateDateTime, 60 * 1000);
