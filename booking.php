@@ -24,6 +24,7 @@
     $date = mysqli_escape_string($conn, $_POST['date']);
     $time = mysqli_escape_string($conn, $_POST['time']);
     
+    // Create BOOKING table if it does not exist
     $create_query = "
       CREATE TABLE IF NOT EXISTS BOOKING (
       booking_ref VARCHAR(8) NOT NULL PRIMARY KEY,
@@ -47,7 +48,7 @@
       exit();
     }
 
-    # Generate new booking reference
+    //  Generate new booking reference
     $ref_query = "SELECT booking_ref FROM BOOKING ORDER BY booking_ref DESC LIMIT 1";
     $ref_result = mysqli_query($conn, $ref_query);
     
@@ -64,6 +65,7 @@
     $datetime = $datetime_obj->format('Y-m-d H:i:s');
     $status = "unassigned";
 
+    // Insert new booking into the BOOKING table
     $insert_query = "
       INSERT INTO BOOKING (
         booking_ref, name, phone, unit_no, street_no, street_name, suburb, dsuburb, datetime, status
