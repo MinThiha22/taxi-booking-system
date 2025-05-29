@@ -3,9 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
   <title>Admin Portal - Cabs Online</title>
 </head>
-<body>
+<body class="min-h-screen flex flex-col">
+  <!-- Top nav bar -->
+  <header class="bg-gray-500 shadow-lg sticky top-0 z-50">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center font-lilita">
+      <a href="./index.html" class="flex items-center gap-3 text-3xl text-yellow-400">
+        <img src="./assets/images/taxi.png" alt="write" class="h-11 w-11"/>
+        Cabs Online
+      </a>
+      <div class="flex items-center gap-4 text-amber-50">
+        <a href="./booking.html" class="bg-yellow-600 hover:bg-yellow-700 px-4 py-2 rounded-lg transform hover:scale-105 transition-all shadow-lg">Book Your Ride</a>
+        <a href="./admin.html" class="border-1 border-white px-4 py-2 rounded-lg transform hover:scale-105 transition-all shadow-lg">Admin Portal</a>
+        <a href="./about.html" class="flex items-center gap-2 transform hover:scale-105 transition-all">
+          <img src="./assets/images/about.png" alt="write" class="h-7 w-7 "/>
+          About This Assignment
+        </a>
+      </div>
+    </nav>
+  </header>
+  <section class="flex-grow pt-10 bg-gradient-to-br from-gray-900 to-blue-900">
+    <div class="container mx-auto flex flex-col w-[80%]">
+      <form id="search-form" class="bg-white mx-auto w-full border-1 rounded-2xl p-10 flex flex-col space-y-3">
+        <label for="bsearch" class="font-bold font-lilita text-3xl">Search Booking Requests</label>
+        <div class="flex justify-between gap-6 md:flex-row flex-col items-center">
+          <input 
+            type="text" 
+            name="bsearch" 
+            placeholder="Search by booking reference (eg.BRN00001) or leave empty for recent bookings" class="border-2 rounded-2xl px-4 py-3 md:flex-grow w-full" 
+            pattern="(^$)|(^BRN[0-9]{5}$)" 
+            title="Booking reference must be in the format BRN00001 or leave empty for recent bookings">
+          <input 
+            id="search-btn" 
+            type="button" 
+            name="sbutton" 
+            value="Search" 
+            class="bg-yellow-600 text-base sm:text-lg md:text-xl hover:bg-yellow-700 font-bold text-white font-inter px-8 py-4 rounded-xl transform hover:scale-105 transition-all shadow-lg cursor-pointer w-full md:w-[350px]"/>
+        </div>
+      </form>
+      <div id="content" class="flex flex-col w-full p-0 mt-10 bg-white font-inter rounded-xl"></div>      
+    </div>
+    
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="py-1 border-t border-gray-300 bg-gray-200 text-center text-md text-gray-500">
+      © 2025 Cabs Online. All rights reserved. Author: Min Thiha Ko Ko - ID: 21156028
+    </div>
+  </footer>
+
+  <script src="./admin.js"></script>
   
 </body>
 </html>

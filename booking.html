@@ -6,23 +6,27 @@
   <link rel="stylesheet" href="./style.css">
   <title>Booking - Cabs Online</title>
 </head>
-<body>
+<body class="min-h-screen flex flex-col">
   <!-- Top nav bar -->
-  <header class="bg-gray-200 shadow-lg sticky top-0 z-50">
-    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="./index.html" class="flex items-center gap-3 text-2xl font-bold font-lilita text-gray-800">
-        <img src="./assets/images/taxi.png" alt="write" class="h-9 w-9"/>
+  <header class="bg-gray-500 shadow-lg sticky top-0 z-50">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center font-lilita">
+      <a href="./index.html" class="flex items-center gap-3 text-3xl text-yellow-400">
+        <img src="./assets/images/taxi.png" alt="write" class="h-11 w-11"/>
         Cabs Online
       </a>
-      <a href="" class="flex items-center gap-2 font-bold font-lilita text-gray-800">
-        <img src="./assets/images/about.png" alt="write" class="h-7 w-7"/>
-        About This Assignment
-      </a>
+      <div class="flex items-center gap-4 text-amber-50">
+        <a href="./booking.html" class="bg-yellow-600 hover:bg-yellow-700 px-4 py-2 rounded-lg transform hover:scale-105 transition-all shadow-lg">Book Your Ride</a>
+        <a href="./admin.html" class="border-1 border-white px-4 py-2 rounded-lg transform hover:scale-105 transition-all shadow-lg">Admin Portal</a>
+        <a href="./about.html" class="flex items-center gap-2 transform hover:scale-105 transition-all">
+          <img src="./assets/images/about.png" alt="write" class="h-7 w-7 "/>
+          About This Assignment
+        </a>
+      </div>
     </nav>
   </header>
 
   <!-- Main Section -->
-  <section class="bg-gradient-to-br from-gray-900 to-blue-900 text-white font-inter py-10">
+  <section class="flex-grow bg-gradient-to-br from-gray-900 to-blue-900 text-white font-inter py-10">
     <div class="container grid md:grid-cols-12 mx-auto items-center h-auto">
       <!-- Left Column (Image) -->
       <div class="md:col-span-1"></div>
@@ -112,11 +116,13 @@
 
   <!-- Booking confirmation message section -->
   <section hidden class="py-10 bg-gradient-to-tl from-cyan-100 to-yellow-100">
-    <div hidden id="reference" class="border-1 w-[30%] space-y-5 flex flex-col mx-auto bg-white p-5 rounded-2xl shadow-2xl">
+    <div hidden id="reference" class="border-1 w-[80%] md:w-[45%] space-y-5 flex flex-col mx-auto bg-white p-5 rounded-2xl shadow-2xl">
     </div>
   </section>
+
+  <!-- Footer -->
   <footer>
-    <div class="py-2 border-t border-gray-300 text-center text-md text-gray-500">
+    <div class="py-1 border-t border-gray-300 bg-gray-200 text-center text-md text-gray-500">
       © 2025 Cabs Online. All rights reserved. Author: Min Thiha Ko Ko - ID: 21156028
     </div>
   </footer>

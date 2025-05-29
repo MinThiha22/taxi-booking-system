@@ -2,7 +2,10 @@
   require_once("../../files/sqlinfo.inc.php");
   $conn = @mysqli_connect($sql_host,$sql_user,$sql_pass,$sql_db);
   if(!$conn){
-    echo "Database Connection Failed! " . mysqli_connect_error();
+    echo '
+      <p class="text-center bg-red-100 border-2 border-red-400 text-red-700 text-2xl rounded-xl font-bold"> 
+        Database Connection Failed! ' . mysqli_connect_error() .
+      '</p>';
   } else{
     $name = mysqli_escape_string($conn, $_POST['cname']);
     $phone = mysqli_escape_string($conn, $_POST['phone']);
@@ -24,13 +27,16 @@
       street_name VARCHAR(100) NOT NULL,
       suburb VARCHAR(100),
       dsuburb VARCHAR(100),
-      datetime VARCHAR(20) NOT NULL,
+      datetime DATETIME NOT NULL,
       status VARCHAR(20) NOT NULL
       )";
 
     $result = mysqli_query($conn, $create_query);
     if(!$result) {
-      echo "Error creating table: " . mysqli_error($conn);
+      echo '
+        <p class="text-center bg-red-100 border-2 border-red-400 text-red-700 text-2xl rounded-xl font-bold"> 
+          Error creating table: ' . mysqli_error($conn) .
+        '</p>';
       exit();
     }
 
@@ -47,7 +53,8 @@
     }
 
     $booking_ref = "BRN" . str_pad($new_number, 5, "0", STR_PAD_LEFT);
-    $datetime = $date . " " . $time;
+    $datetime_obj = DateTime::createFromFormat('d/m/Y H:i', "$date $time");
+    $datetime = $datetime_obj->format('Y-m-d H:i:s');
     $status = "unassigned";
 
     $insert_query = "
@@ -57,7 +64,10 @@
     )";
     $insert_result = mysqli_query($conn, $insert_query);
     if(!$insert_result) {
-      echo "Error inserting booking: " . mysqli_error($conn);
+      echo '
+        <p class="text-center bg-red-100 border-2 border-red-400 text-red-700 text-2xl rounded-xl font-bold"> 
+          Error inserting booking: ' . mysqli_error($conn) .
+        '</p>';
       
     } else {
       echo '<p class="font-bold text-2xl font-lilita text-center">Thank you for booking!</p>';
@@ -74,6 +84,5 @@
       </div>
     ';
   }
-  mysqli_close($conn);
-  
+  mysqli_close($conn); 
 ?>

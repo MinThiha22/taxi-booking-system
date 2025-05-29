@@ -1,0 +1,48 @@
+# booking.php
+## Create TABLE
+CREATE TABLE IF NOT EXISTS BOOKING (
+    booking_ref VARCHAR(8) NOT NULL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    phone VARCHAR(12) NOT NULL,
+    unit_no VARCHAR(10),
+    street_no VARCHAR(10) NOT NULL,
+    street_name VARCHAR(100) NOT NULL,
+    suburb VARCHAR(100),
+    dsuburb VARCHAR(100),
+    datetime DATETIME NOT NULL,
+    status VARCHAR(20) NOT NULL
+    );
+
+## For generating unique booking_ref
+SELECT booking_ref FROM BOOKING ORDER BY booking_ref DESC LIMIT 1;
+
+## Insert data
+INSERT INTO BOOKING (
+    booking_ref, name, phone, unit_no, street_no, street_name, suburb, dsuburb, datetime, status
+  ) VALUES ( '$booking_ref', '$name', '$phone', '$unit', '$street_no','$street_name', '$suburb', '$dsuburb', '$datetime', '$status');
+
+# admin.php
+## Change status
+UPDATE BOOKING
+  SET status = 'Assigned'
+  WHERE booking_ref = '$booking_ref_assign';
+
+## Select assigned row
+SELECT booking_ref, name, phone, suburb, dsuburb, datetime, status 
+  FROM BOOKING
+  WHERE booking_ref = '$booking_ref_assign';
+
+## Search bookings within 2 hours from the current time only
+SELECT booking_ref, name, phone, suburb, dsuburb, datetime, status 
+  FROM BOOKING
+  WHERE datetime >= '$datetime' AND datetime < DATE_ADD('$datetime', INTERVAL 2 HOUR) AND
+  status = 'unassigned'
+  ORDER BY datetime ASC;
+
+## Search using booking id
+SELECT booking_ref, name, phone, suburb, dsuburb, datetime, status 
+  FROM BOOKING
+  WHERE booking_ref = '$search';
+
+## Drop table
+DROP TABLE IF EXISTS BOOKING;
